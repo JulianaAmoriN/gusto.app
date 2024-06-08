@@ -1,8 +1,7 @@
 // src/navigation/AppNavigator.js
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text, StyleSheet } from 'react-native';
-import LoginPage from './src/pages/LoginScreen';
+import LoginUser from './src/pages/LoginUser';
 import CustomHeader from './src/components/CustomHeader';
 
 const Stack = createNativeStackNavigator();
@@ -15,8 +14,8 @@ const AppNavigator = () => {
       }}
     >
       <Stack.Screen 
-        name="Login" 
-        component={LoginPage} 
+        name="LoginUser" 
+        component={LoginUser} 
         options={{ headerShown: false }} 
       />
     </Stack.Navigator>
