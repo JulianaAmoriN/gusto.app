@@ -1,12 +1,12 @@
-// src/navigation/AppNavigator.js
+// Router.js
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginUser from './src/pages/LoginUser';
-import CustomHeader from './src/components/CustomHeader';
+import LoginUser from './pages/LoginUser';
+import CustomHeader from './components/CustomHeader';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => {
+const Router = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -22,4 +22,4 @@ const AppNavigator = () => {
   );
 }
 
-export default AppNavigator;
+export default Router;
