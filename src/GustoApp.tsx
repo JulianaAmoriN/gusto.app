@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Router from './Router';
 
-const GustoApp = () => {
+const GustoApp = props => {
   return (
     <Provider store={store}>
       <NavigationContainer>
