@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, Button, ActivityIndicator } from 'react-native';
 import FormButton from '../components/FormButton';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
+import { connect } from 'react-redux'
+import { tryLogin } from '../store/actions';
 
-export default class LoginUser extends React.Component {
+class LoginUser extends React.Component {
     constructor(props: any) {
         super(props);
 
         this.state = {
-            mail: '',
+            email: '',
             password: '',
             isLoading: false,
         }
@@ -23,16 +23,9 @@ export default class LoginUser extends React.Component {
 
     tryLogin() {
         this.setState({ isLoading: true, message: '' });
-        const { mail, password } = this.state;
+        const { email, password } = this.state;
 
-        signInWithEmailAndPassword(auth, mail, password)
-            .then(user => {
-                this.setState({ message: 'Sucesso!' });
-            })
-            .catch(error => {
-                this.setState({ message: this.getMessageByErrorCode(error.code) });
-            })
-            .then(() => this.setState({ isLoading: false }))
+        this.props;tryLogin({ email, password });
     }
 
     getMessageByErrorCode(errorCode) {
@@ -82,8 +75,8 @@ export default class LoginUser extends React.Component {
                 <FormButton>
                     <TextInput
                         placeholder='user@mail.com'
-                        value={this.state.mail}
-                        onChangeText={value => this.onChengeHandler('mail', value)}
+                        value={this.state.email}
+                        onChangeText={value => this.onChengeHandler('email', value)}
                     />
                 </FormButton>
 
@@ -111,3 +104,5 @@ const styles = StyleSheet.create({
         color: '#565656',
     },
 });
+
+export default connect(null, { tryLogin })(LoginUser);
