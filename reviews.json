@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "restaurante": "Churrascaria Fogo de Chão",
+      "endereço": "Av. Paulista, 1000 - Bela Vista, São Paulo - SP",
+      "nota": 4.5,
+      "comentarios": "Ótima comida e excelente atendimento. O churrasco é de alta qualidade e o ambiente é muito agradável.",
+      "imagens": "https://media-cdn.tripadvisor.com/media/photo-s/19/ea/f7/45/img-20191102-225958-largejpg.jpg"
+    },
+    {
+      "id": 2,
+      "restaurante": "Pizzaria Bráz",
+      "endereço": "R. Vupabussu, 271 - Pinheiros, São Paulo - SP",
+      "nota": 4.7,
+      "comentarios": "Melhor pizza da cidade! Massa crocante e ingredientes frescos. O atendimento também é muito bom.",
+      "imagens": "https://www.baressp.com.br/bares/fotos2/braz_5-min_191020171954.jpg"
+
+    },
+    {
+      "id": 3,
+      "restaurante": "Restaurante Maní",
+      "endereço": "R. Joaquim Antunes, 210 - Pinheiros, São Paulo - SP",
+      "nota": 4.8,
+      "comentarios": "Experiência gastronômica incrível. Pratos bem elaborados e saborosos. Ambiente sofisticado.",
+      "imagens": "https://www.baressp.com.br/bares/fotos3/man%C3%AD.jpg"
+
+    },
+    {
+      "id": 4,
+      "restaurante": "Bar da Dona Onça",
+      "endereço": "Av. Ipiranga, 200 - Centro, São Paulo - SP",
+      "nota": 4.2,
+      "comentarios": "Comida típica brasileira muito bem feita. O ambiente é descontraído e animado.",
+      "imagens": "https://media-cdn.tripadvisor.com/media/photo-s/0e/95/b0/49/photo0jpg.jpg"
+
+    },
+    {
+      "id": 5,
+      "restaurante": "Mocotó",
+      "endereço": "Av. Nossa Sra. do Loreto, 1100 - Vila Medeiros, São Paulo - SP",
+      "nota": 4.9,
+      "comentarios": "Comida nordestina de alta qualidade. Atendimento acolhedor e pratos muito saborosos.",
+      "imagens": "https://www.essemundoenosso.com.br/wp-content/uploads/2017/02/RestauranteMocoto05.jpg"
+
+    }
+  ]
