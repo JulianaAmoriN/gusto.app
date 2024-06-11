@@ -3,7 +3,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginUser from './pages/LoginUser';
 import CustomHeader from './components/CustomHeader';
-import Main from './pages/Main';
+import ReviewsPage from './pages/ReviewsPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,12 +14,12 @@ const Router = () => {
         header: () => <CustomHeader title='Gusto' />,
       }}
     >
-      <Stack.Screen 
-        name='LoginUser' 
-        component={LoginUser} 
-        options={{ headerShown: false }} 
+      <Stack.Screen
+        name='LoginUser'
+        component={LoginUser}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen name='Main' component={Main} />
+      <Stack.Screen name='ReviewsPage' component={ReviewsPage} />
     </Stack.Navigator>
   );
 }
