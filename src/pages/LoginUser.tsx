@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, Button, ActivityIndicator } from 're
 import { connect } from 'react-redux';
 import { tryLogin } from '../store/actions';
 import FormButton from '../components/FormButton';
+import CustomButton from '../components/CustomButton';
 
 class LoginUser extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class LoginUser extends React.Component {
         this.props.tryLogin({ email, password })
             .then(user => {
                 this.setState({ isLoading: false });
-                this.props.navigation.replace('Main'); // Usar replace para bloquear o retorno à página de login
+                this.props.navigation.replace('ReviewsPage'); // Usar replace para bloquear o retorno à página de login
             })
             .catch(error => {
                 this.setState({ isLoading: false, message: this.getMessageByErrorCode(error.code) });
@@ -54,9 +55,13 @@ class LoginUser extends React.Component {
 
     renderButton = () => {
         if (this.state.isLoading) return <ActivityIndicator />;
-        return <Button title='Login' onPress={this.tryLogin} />;
-    }
-
+        return (
+          <CustomButton
+            title='Login'
+            onPress={this.tryLogin}
+          />
+        );
+      }
     render() {
         return (
             <View style={styles.container}>
@@ -93,6 +98,10 @@ const styles = StyleSheet.create({
     text: {
         color: '#565656',
     },
+    button: {
+        borderRadius: 10,
+        backgroundColor: '#A63D40',
+    }
 });
 
 export default connect(null, { tryLogin })(LoginUser);
