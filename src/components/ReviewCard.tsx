@@ -1,8 +1,11 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const ReviewCard = ({ review }) => (
-  <View style={styles.container}>
+const ReviewCard = ({ review, onNavigate }) => (
+  <TouchableOpacity
+    style={styles.container}
+    onPress={onNavigate}
+  >
     <Image
       style={styles.image}
       source={{
@@ -10,13 +13,13 @@ const ReviewCard = ({ review }) => (
       }}
     />
     <Text style={styles.text}>{`${review.restaurante}`}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff',
-    padding: 15,
+    padding: 10,
     borderRadius: 10,
     borderWidth: 1.5,
     borderColor: '#565656',
