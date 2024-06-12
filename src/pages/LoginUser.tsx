@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { tryLogin } from '../store/actions';
 import FormButton from '../components/FormButton';
 import CustomButton from '../components/CustomButton';
+import WelcomeHeader from '../components/WelcomeHeader';
 
 class LoginUser extends React.Component {
     constructor(props) {
@@ -65,6 +66,7 @@ class LoginUser extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <WelcomeHeader welcomeText='Seja bem vindo(a) ao Gusto' />
                 <Text style={styles.text}>Email</Text>
                 <FormButton>
                     <TextInput
