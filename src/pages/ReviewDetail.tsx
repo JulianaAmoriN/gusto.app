@@ -11,8 +11,8 @@ interface Review {
     restaurante: string;
     imagens: string;
     nota: string;
-    endereço: string;
-    review: string;
+    endereco: string;
+    comentarios: string;
 }
 
 interface User {
@@ -45,11 +45,11 @@ class ReviewDetail extends Component<ReviewDetailProps> {
                 </View>
                 <View style={styles.box}>
                     <Text style={styles.label}>Endereço:</Text>
-                    <Text style={styles.boxText}>{review.endereço}</Text>
+                    <Text style={styles.boxText}>{review.endereco}</Text>
                 </View>
                 <View style={styles.box}>
                     <Text style={styles.label}>Review:</Text>
-                    <Text style={styles.boxText}>{review.review}</Text>
+                    <Text style={styles.boxText}>{review.comentarios}</Text>
                 </View>
             </View>
         );

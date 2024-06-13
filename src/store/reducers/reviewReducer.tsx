@@ -1,7 +1,15 @@
-// reviewReducer.js
 import { UPDATE_REVIEW_FIELD, RESET_REVIEW_FORM } from '../actions/reviewActions';
 
-const initialState = {
+interface ReviewState {
+    restaurante: string;
+    endereco: string;
+    nota: string;
+    comentarios: string;
+    imagens: string;
+    user: string | null;
+}
+
+const initialState: ReviewState = {
     restaurante: '',
     endereco: '',
     nota: '',
@@ -10,7 +18,7 @@ const initialState = {
     user: null,
 };
 
-const reviewReducer = (state = initialState, action) => {
+const reviewReducer = (state = initialState, action: any): ReviewState => {
     switch (action.type) {
         case UPDATE_REVIEW_FIELD:
             return { ...state, [action.field]: action.value };

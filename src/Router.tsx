@@ -24,7 +24,6 @@ const Router = () => {
       <Stack.Screen name='ReviewsPage' component={ReviewsPage} />
       <Stack.Screen name='ReviewDetail' component={ReviewDetail} />
       <Stack.Screen name='CreateReview' component={CreateReview} />
-
     </Stack.Navigator>
   );
 }

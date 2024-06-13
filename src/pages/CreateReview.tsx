@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, TextInputProps } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { updateReviewField, resetReviewForm } from '../store/actions/reviewActions';
+import { updateReviewField, resetReviewForm, submitReview } from '../store/actions/reviewActions';
 import CustomButton from '../components/CustomButton';
 import { Rating } from 'react-native-ratings';
 
@@ -17,6 +17,7 @@ interface CreateReviewProps {
     review: Review;
     updateReviewField: (field: string, value: string) => void;
     resetReviewForm: () => void;
+    submitReview: (review: Review) => void;
     route: { params: { user: { uid: string } } };
 }
 
@@ -40,9 +41,18 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
         this.props.updateReviewField('nota', roundedRating.toFixed(2));
     };
 
+    resetStarCount = () => {
+        this.setState({ starCount: 0 });
+    };
+
     handleSubmit = () => {
         const { restaurante, endereco, comentarios, imagens, user } = this.props.review;
         const { starCount } = this.state;
+
+        if (!restaurante || !endereco || !imagens || starCount === 0) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
 
         const review = {
             restaurante,
@@ -53,12 +63,13 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
             user,
         };
 
-        console.log('Nova Review:', review);
-        this.props.resetReviewForm();
+        this.props.submitReview(review);
+        this.resetStarCount();
     };
 
     render() {
         const { restaurante, endereco, comentarios, imagens } = this.props.review;
+        const { starCount } = this.state;
 
         return (
             <ScrollView>
@@ -97,7 +108,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
                                 type="star"
                                 ratingCount={5}
                                 imageSize={40}
-                                startingValue={0}
+                                startingValue={starCount}
                                 fractions={2}
                                 onFinishRating={this.handleStarRating}
                                 style={styles.rating}
@@ -167,6 +178,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     updateReviewField,
     resetReviewForm,
+    submitReview,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateReview);
