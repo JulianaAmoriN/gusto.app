@@ -96,7 +96,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
                             <Rating
                                 type="star"
                                 ratingCount={5}
-                                imageSize={30}
+                                imageSize={40}
                                 startingValue={0}
                                 fractions={2}
                                 onFinishRating={this.handleStarRating}
