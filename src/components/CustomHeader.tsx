@@ -10,13 +10,16 @@ const CustomHeader = ({ title }) => {
   const isInitialScreen = route.name === 'ReviewsPage';
 
   return (
-    <View style={styles.header}>
-      {!isInitialScreen && (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Icon name="arrow-back" size={25} color="#1D1D1D" />
-        </TouchableOpacity>
-      )}
-      <Text style={styles.headerTitle}>{title}</Text>
+    <View>
+      <View style={styles.header}>
+        {!isInitialScreen && (
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+            <Icon name="arrow-back" size={25} color="#1D1D1D" />
+          </TouchableOpacity>
+        )}
+        <Text style={styles.headerTitle}>{title}</Text>
+      </View>
+      <View style={styles.headerLine} />
     </View>
   );
 };
@@ -38,6 +41,10 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#1D1D1D',
     fontWeight: 'bold',
+  },
+  headerLine: {
+    height: 1,
+    backgroundColor: '#dcdcdc',
   },
 });
 

@@ -1,7 +1,8 @@
+// LoginUser.js
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, Button, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { tryLogin } from '../store/actions';
+import { tryLogin } from '../store/actions/userActions';
 import FormButton from '../components/FormButton';
 import CustomButton from '../components/CustomButton';
 import WelcomeHeader from '../components/WelcomeHeader';
@@ -28,7 +29,7 @@ class LoginUser extends React.Component {
         this.props.tryLogin({ email, password })
             .then(user => {
                 this.setState({ isLoading: false });
-                this.props.navigation.replace('ReviewsPage'); // Usar replace para bloquear o retorno à página de login
+                this.props.navigation.replace('ReviewsPage', { user }); // Passa o usuário para a ReviewsPage
             })
             .catch(error => {
                 this.setState({ isLoading: false, message: this.getMessageByErrorCode(error.code) });
@@ -57,12 +58,13 @@ class LoginUser extends React.Component {
     renderButton = () => {
         if (this.state.isLoading) return <ActivityIndicator />;
         return (
-          <CustomButton
-            title='Login'
-            onPress={this.tryLogin}
-          />
+            <CustomButton
+                title='Login'
+                onPress={this.tryLogin}
+            />
         );
-      }
+    }
+
     render() {
         return (
             <View style={styles.container}>
