@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateReviewField, resetReviewForm, submitReview } from '../store/actions/reviewActions';
 import CustomButton from '../components/CustomButton';
 import { Rating } from 'react-native-ratings';
+import StarRating from '../components/StarRating';
 
 interface Review {
     restaurante: string;
@@ -101,20 +102,10 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
                         numberOfLines={4}
                         multiline={true}
                     />
-                    <View style={styles.ratingInputContainer}>
-                        <View style={styles.ratingContainer}>
-                            <Text style={styles.label}>Nota:</Text>
-                            <Rating
-                                type="star"
-                                ratingCount={5}
-                                imageSize={40}
-                                startingValue={starCount}
-                                fractions={2}
-                                onFinishRating={this.handleStarRating}
-                                style={styles.rating}
-                            />
-                        </View>
-                    </View>
+                    <StarRating
+                        defaultRating={starCount} // Passando o estado local de nota
+                        onChangeRating={this.handleStarRating} // Função para atualizar a nota
+                    />
                     <CustomButton
                         title="Enviar Review"
                         onPress={this.handleSubmit}
@@ -148,26 +139,6 @@ const styles = StyleSheet.create({
     textarea: {
         height: 120,
         textAlignVertical: 'top',
-    },
-    ratingInputContainer: {
-        marginBottom: 20,
-        borderColor: '#dcdcdc',
-        borderWidth: 1,
-        borderRadius: 10,
-        backgroundColor: '#ffffff',
-        padding: 10,
-    },
-    ratingContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    label: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginRight: 10,
-    },
-    rating: {
-        flex: 1,
     },
 });
 

@@ -6,6 +6,7 @@ import CustomHeader from './components/CustomHeader';
 import ReviewsPage from './pages/ReviewsPage';
 import ReviewDetail from './pages/ReviewDetail';
 import CreateReview from './pages/CreateReview';
+import EditReview from './pages/EditReview';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const Router = () => {
       <Stack.Screen name='ReviewsPage' component={ReviewsPage} />
       <Stack.Screen name='ReviewDetail' component={ReviewDetail} />
       <Stack.Screen name='CreateReview' component={CreateReview} />
+      <Stack.Screen name='EditReview' component={EditReview} />
     </Stack.Navigator>
   );
 }

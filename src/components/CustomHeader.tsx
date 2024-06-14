@@ -8,11 +8,13 @@ const CustomHeader = ({ title }) => {
   const route = useRoute();
 
   const isInitialScreen = route.name === 'ReviewsPage';
+  const isEditScreen = route.name === 'EditReview';
+
 
   return (
     <View>
       <View style={styles.header}>
-        {!isInitialScreen && (
+        {(!isInitialScreen || isEditScreen ) && (
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
             <Icon name="arrow-back" size={25} color="#1D1D1D" />
           </TouchableOpacity>

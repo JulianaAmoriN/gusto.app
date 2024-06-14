@@ -71,14 +71,13 @@ export const fetchReviews = (userId) => async (dispatch) => {
 };
 
 //update
-export const editReview = (userId, reviewId, updatedReview) => async (dispatch) => {
+export const updateReview = (userId, reviewId, updatedReview) => async (dispatch) => {
     dispatch({ type: EDIT_REVIEW_REQUEST });
 
     try {
         const reviewDocRef = doc(db, `users/${userId}/reviews`, reviewId);
         await updateDoc(reviewDocRef, updatedReview);
         dispatch({ type: EDIT_REVIEW_SUCCESS });
-        Alert.alert('Sucesso', 'Review salva com sucesso!');
     } catch (error) {
         dispatch({ type: EDIT_REVIEW_FAILURE, error: error.message });
         console.error('Error updating document: ', error);
