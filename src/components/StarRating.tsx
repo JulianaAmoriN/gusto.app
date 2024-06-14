@@ -1,15 +1,14 @@
-// components/StarRating.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Rating } from 'react-native-ratings';
 
 const StarRating = ({ defaultRating, onChangeRating }) => {
-    const [rating, setRating] = useState(defaultRating.toFixed(2)); // Convertendo para duas casas decimais
+    const [rating, setRating] = useState(defaultRating.toFixed(2));
 
     const handleRating = (newRating) => {
-        const roundedRating = parseFloat(newRating.toFixed(2)); // Garantindo duas casas decimais
-        setRating(roundedRating.toFixed(2)); // Atualizando state com duas casas decimais
-        onChangeRating(roundedRating); // Chamando a função de onChangeRating com o novo valor
+        const roundedRating = parseFloat(newRating.toFixed(2));
+        setRating(roundedRating.toFixed(2));
+        onChangeRating(roundedRating);
     };
 
     return (
@@ -18,12 +17,12 @@ const StarRating = ({ defaultRating, onChangeRating }) => {
             <Rating
                 type="custom"
                 ratingCount={5}
-                startingValue={parseFloat(rating)} // Convertendo para float
+                startingValue={parseFloat(rating)}
                 imageSize={40}
                 ratingColor="#f1c40f"
                 ratingBackgroundColor="#c8c7c8"
                 onFinishRating={handleRating}
-                fractions={2} // Permitindo até duas casas decimais
+                fractions={2}
                 style={{ paddingVertical: 10 }}
             />
         </View>

@@ -1,21 +1,20 @@
-// EditReview.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { updateReview } from '../store/actions/reviewActions';
 import CustomButton from '../components/CustomButton';
-import StarRating from '../components/StarRating'; // Importando o componente StarRating
+import StarRating from '../components/StarRating';
 
 const EditReview = ({ route, navigation, updateReview }) => {
     const { review, user } = route.params;
     const [comentarios, setComentarios] = useState(review.comentarios);
-    const [nota, setNota] = useState(parseFloat(review.nota).toFixed(2)); // Convertendo para float com duas casas decimais
+    const [nota, setNota] = useState(parseFloat(review.nota).toFixed(2));
 
     const handleSaveReview = async () => {
         const updatedReview = {
             ...review,
             comentarios,
-            nota, // Mantém a precisão de duas casas decimais
+            nota,
         };
         await updateReview(user.uid, review.id, updatedReview);
         navigation.navigate('ReviewDetail', { review: updatedReview, user });
@@ -41,7 +40,7 @@ const EditReview = ({ route, navigation, updateReview }) => {
                     numberOfLines={4}
                 />
                 <StarRating
-                    defaultRating={parseFloat(nota)} // Convertendo para float
+                    defaultRating={parseFloat(nota)}
                     onChangeRating={setNota}
                 />
                 <View>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList, Alert } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
@@ -29,11 +29,10 @@ const ReviewsPage = ({ navigation, route }) => {
     }
   };
 
-  // Utilize o hook useFocusEffect para buscar as revisões sempre que a tela for focada
   useFocusEffect(
     React.useCallback(() => {
       fetchReviews();
-    }, [user]) // Dependência 'user' para garantir que as revisões sejam atualizadas quando o usuário mudar
+    }, [user])
   );
 
   const handleNavigateToReviewDetail = (review) => {
@@ -67,8 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
-  // Mapeie o estado redux se necessário
-});
-
-export default connect(mapStateToProps)(ReviewsPage);
+export default connect(null)(ReviewsPage);

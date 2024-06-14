@@ -10,7 +10,6 @@ const FormButton = (props: any) => {
     );
 };
 
-
 const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
