@@ -1,4 +1,3 @@
-// LoginUser.js
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';

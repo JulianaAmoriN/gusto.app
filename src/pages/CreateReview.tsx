@@ -3,16 +3,8 @@ import { View, Text, TextInput, StyleSheet, ScrollView, Alert } from 'react-nati
 import { connect } from 'react-redux';
 import { updateReviewField, resetReviewForm, submitReview } from '../store/actions/reviewActions';
 import CustomButton from '../components/CustomButton';
-import { Rating } from 'react-native-ratings';
 import StarRating from '../components/StarRating';
-
-interface Review {
-    restaurante: string;
-    endereco: string;
-    comentarios: string;
-    imagens: string;
-    user: string;
-}
+import Review from '../models/Reviwe';
 
 interface CreateReviewProps {
     review: Review;
@@ -103,8 +95,8 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewState> {
                         multiline={true}
                     />
                     <StarRating
-                        defaultRating={starCount} // Passando o estado local de nota
-                        onChangeRating={this.handleStarRating} // Função para atualizar a nota
+                        defaultRating={starCount}
+                        onChangeRating={this.handleStarRating} 
                     />
                     <CustomButton
                         title="Enviar Review"

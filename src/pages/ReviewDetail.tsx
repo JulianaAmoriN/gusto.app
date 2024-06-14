@@ -5,20 +5,12 @@ import { RouteProp } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { deleteReview } from '../store/actions/reviewActions';
 import CustomButton from '../components/CustomButton';
+import Review from '../models/Reviwe';
 
 interface ReviewDetailProps {
     route: RouteProp<{ params: { review: Review, user: User } }, 'params'>;
     navigation: any;
     deleteReview: (userId: string, reviewId: string) => void;
-}
-
-interface Review {
-    id: string;
-    restaurante: string;
-    imagens: string;
-    nota: string;
-    endereco: string;
-    comentarios: string;
 }
 
 interface User {
